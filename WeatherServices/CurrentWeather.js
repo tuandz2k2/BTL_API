@@ -1,4 +1,19 @@
 ﻿const API_KEY = "93ca389fd64a462abce142159232003";
+function formatDate(inputDate) {
+    // Tạo đối tượng Date từ chuỗi ngày đầu vào
+    var date = new Date(inputDate);
+
+    // Lấy tên ngày trong tuần
+    var weekdays = ['Chủ nhật', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7'];
+    var weekday = weekdays[date.getDay()];
+
+    // Lấy ngày và tháng 
+    var day = date.getDate().toString().padStart(2, '0');
+    var month = (date.getMonth() + 1).toString().padStart(2, '0');
+
+    // Trả về chuỗi định dạng mới
+    return weekday + ' ' + day + '/' + month;
+}
 function getCurrentWeather() {
     // Lấy vị trí hiện tại của người dùng
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -46,15 +61,14 @@ function getCurrentWeather() {
                 for (let i = 0; i < 3; i++) {
                     // Lấy dữ liệu trả về
                     var date = data.forecast.forecastday[i].date;
-                    console.log(date);
                     var avghumidity = data.forecast.forecastday[i].day.avghumidity;
-                    console.log(avghumidity);
                     var iconUrlforecast = data.forecast.forecastday[i].day.condition.icon;
                     var textforecast = data.forecast.forecastday[i].day.condition.text;
                     var min_temp = data.forecast.forecastday[i].day.mintemp_c;
                     var max_temp = data.forecast.forecastday[i].day.maxtemp_c;
+                    var displayDate = formatDate(date);
                     str = `<div class="weather-item">
-                                    <span class="weather-item-title">${date}</span>
+                                    <span class="weather-item-title">${displayDate}</span>
                                     <div class="weather-item-body">
                                         <img src="${iconUrlforecast}">
                                         <div class="precipitation" title="Độ ẩm">
@@ -65,8 +79,8 @@ function getCurrentWeather() {
                                         </p>
                                     </div>
                                     <div class="weather-item-footer">
-                                        <span>${min_temp}</span> /
-                                        <span>${max_temp}</span>
+                                        <span>${min_temp}°</span> /
+                                        <span>${max_temp}°</span>
                                     </div>
                                 </div>
                     `;
