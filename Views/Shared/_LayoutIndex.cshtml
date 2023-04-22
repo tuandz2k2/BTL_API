@@ -473,17 +473,44 @@
         </script>
     </div>
     @RenderBody()
-    <footer class="border-top footer text-muted py-3">
+    <footer>
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-8">
+                <div class="col-12 col-md-9">
                     <div class="footer-items footer-items-left">
-                        <span>© 2021 thoitiet.edu.vn <a href="/">Thời tiết Việt Nam</a></span>
-                        <span><a href="/widget" rel="nofollow noreferrer">Widget</a></span>
+                        <span>© 2023 Team10-Weather Kênh thông tin dự báo thời tiết <a href="/">Team10-Weather</a></span>
+                        <a href="mailTo:info@Team10-Weather" rel="nofollow">
+                            <i class="bi bi-envelope"></i>
+                            info@Team10-Weather
+                        </a>
                         <div class="social-footer-items">
-                            @*</a>*@
+                            <a class="social-footer social-facebook" href="https://www.facebook.com/kenhdubaothoitiet" rel="nofollow" target="_blank">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            <a class="social-footer social-twitter" href="https://twitter.com/thoitiet24hvn" rel="nofollow" target="_blank">
+                                <i class="bi bi-twitter"></i>
+                            </a>
+                            <a class="social-footer social-linkedin" href="https://www.linkedin.com/today/author/thoitiet24h?trk=pulse-article_more-articles" rel="nofollow" target="_blank">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                            <a class="social-footer social-youtube" href="https://www.youtube.com" rel="nofollow" target="_blank">
+                                <i class="bi bi-youtube"></i>
+                            </a>
                         </div>
                     </div>
+                </div>
+                <div class="col-12 col-md-3 text-left text-sm-right">
+                    <ul class="list-inline footer-items">
+                        @*<li class="list-inline-item">
+                                <a href="/widget" rel="nofollow">Widget</a>
+                            </li>*@
+                        <li class="list-inline-item">
+                            <a href="/Home/Dieukhoandichvu" rel="nofollow">Điều khoản dịch vụ</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="/Home/Chinhsachbaomat" rel="nofollow">Chính sách bảo mật</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
