@@ -1,0 +1,514 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dự báo thời tiết nhanh chóng, chính xác nhất tại thoitiet.edu.vn</title>
+    <meta name="description" content="Thoitiet.edu.vn website dự báo thời tiết khu vực 63 tỉnh thành Việt Nam. Cập nhập liên tục thời tiết đêm nay, ngày mai và các ngày tới 3 ngày, 7 ngày, 15 ngày, 30 ngày" />
+    <meta name="robots" content="index, follow" />
+    <meta name='robots' content='max-image-preview:large' />
+    <link rel="canonical" href="https://thoitiet.edu.vn/">
+    <meta property="og:image" content="https://file.thoitiet.edu.vn/thoitietedu/logo-shared.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="628" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:title" content="Dự báo thời tiết nhanh chóng, chính xác nhất tại thoitiet.edu.vn" />
+    <meta property="og:url" content="https://thoitiet.edu.vn/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title_name" content="Dự báo thời tiết nhanh chóng, chính xác nhất tại thoitiet.edu.vn" />
+    <meta property="og:description" content="Thoitiet.edu.vn website dự báo thời tiết khu vực 63 tỉnh thành Việt Nam. Cập nhập liên tục thời tiết đêm nay, ngày mai và các ngày tới 3 ngày, 7 ngày, 15 ngày, 30 ngày" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="manifest" href="/icons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="../resource/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="../resource/lib/jquery-ui/jquery-ui.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../resource/css/site.css?v=T-F2TYvfICLJo8hM3YwWFULN36wmkGyBqH1nTcPUngY" />
+</head>
+<body>
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center justify-content-sm-between py-3">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 text-dark text-decoration-none">
+                <img src="../resource/img/logo-header.png" />
+            </a>
+            <div class="my-3 my-sm-0 mx-sm-4 search-container">
+                <form class="d-flex frmSearch">
+                    <input type="hidden" id="searchValue" name="search" />
+                    <input class="form-control me-2 search-auto" type="search" placeholder="Hà Nội, Hồ Chí Minh, Đà Nẵng,...."
+                           autocomplete="off" aria-label="Search" id="searchInput">
+                    <button class="btn btn-outline-success" type="submit">Tìm kiếm</button>
+                </form>
+
+
+            </div>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="mienbac" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Tỉnh / Thành phố
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="mienbac" style="z-index: 9999;">
+                        <li>
+                            <a class="dropdown-item" href="/ha-noi">
+                                Hà Nội
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/ha-giang">
+                                Hà Giang
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/cao-bang">
+                                Cao Bằng
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/bac-kan">
+                                Bắc Kạn
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/tuyen-quang">
+                                Tuyên Quang
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/lao-cai">
+                                Lào Cai
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/dien-bien">
+                                Điện Biên
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/lai-chau">
+                                Lai Châu
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/son-la">
+                                Sơn La
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/yen-bai">
+                                Yên Bái
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/hoa-binh">
+                                Hoà Bình
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/thai-nguyen">
+                                Thái Nguyên
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/lang-son">
+                                Lạng Sơn
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/quang-ninh">
+                                Quảng Ninh
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/bac-giang">
+                                Bắc Giang
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/phu-tho">
+                                Phú Thọ
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/vinh-phuc">
+                                Vĩnh Phúc
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/bac-ninh">
+                                Bắc Ninh
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/hai-duong">
+                                Hải Dương
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/hai-phong">
+                                Hải Phòng
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/hung-yen">
+                                Hưng Yên
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/thai-binh">
+                                Thái Bình
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/ha-nam">
+                                Hà Nam
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/nam-dinh">
+                                Nam Định
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/ninh-binh">
+                                Ninh Bình
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/thanh-hoa">
+                                Thanh Hóa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/nghe-an">
+                                Nghệ An
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/ha-tinh">
+                                Hà Tĩnh
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/quang-binh">
+                                Quảng Bình
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/quang-tri">
+                                Quảng Trị
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/thua-thien-hue">
+                                Thừa Thiên Huế
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/da-nang">
+                                Đà Nẵng
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/quang-nam">
+                                Quảng Nam
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/quang-ngai">
+                                Quảng Ngãi
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/binh-dinh">
+                                Bình Định
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/phu-yen">
+                                Phú Yên
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/khanh-hoa">
+                                Khánh Hòa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/ninh-thuan">
+                                Ninh Thuận
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/binh-thuan">
+                                Bình Thuận
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/kon-tum">
+                                Kon Tum
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/gia-lai">
+                                Gia Lai
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/dak-lak">
+                                Đắk Lắk
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/dak-nong">
+                                Đắk Nông
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/lam-dong">
+                                Lâm Đồng
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/binh-phuoc">
+                                Bình Phước
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/tay-ninh">
+                                Tây Ninh
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/binh-duong">
+                                Bình Dương
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/dong-nai">
+                                Đồng Nai
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/ba-ria-vung-tau">
+                                Bà Rịa - Vũng Tàu
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/ho-chi-minh">
+                                Hồ Chí Minh
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/long-an">
+                                Long An
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/tien-giang">
+                                Tiền Giang
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/ben-tre">
+                                Bến Tre
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/tra-vinh">
+                                Trà Vinh
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/vinh-long">
+                                Vĩnh Long
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/dong-thap">
+                                Đồng Tháp
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/an-giang">
+                                An Giang
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/kien-giang">
+                                Kiên Giang
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/can-tho">
+                                Cần Thơ
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/hau-giang">
+                                Hậu Giang
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/soc-trang">
+                                Sóc Trăng
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/bac-lieu">
+                                Bạc Liêu
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/ca-mau">
+                                Cà Mau
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="mienbac" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Tin tức
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="mienbac" style="z-index: 9999;">
+                        <li>
+                            <a class="dropdown-item" href="/thien-nhien">
+                                Thiên nhiên
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/giao-duc">
+                                Giáo dục
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/tong-hop">
+                                Tổng hợp
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/tra-diem-thi/">
+                                Tra điểm thi THPT
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <button class="nav-link dropdown-toggle" href="#" id="unit" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span>°C</span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="unit">
+                        <li>
+                            <button class="dropdown-item" onclick="changeUnit('celsius', '/')">
+                                Độ C (°C)
+                            </button>
+                        </li>
+                        <li>
+                            <button class="dropdown-item" onclick="changeUnit('fahrenheit', '/')">
+                                Độ F (°F)
+                            </button>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </header>
+    </div>
+    <main role="main">
+        <div class="container my-3 sticky-top">
+            <nav class="navbar-dark bg-weather-primary menu-location">
+                <div class="nav-scroller">
+                    <ul class="nav w-100 nav-pills nav-fill">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/ha-giang">Hiện tại</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/ha-giang/theo-gio">
+                                Theo giờ
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/ha-giang/ngay-mai">
+                                Ngày mai
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/ha-giang/3-ngay-toi">
+                                3 ngày tới
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/ha-giang/5-ngay-toi">
+                                5 ngày tới
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/ha-giang/7-ngay-toi">
+                                7 ngày tới
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/ha-giang/10-ngay-toi">
+                                10 ngày tới
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/ha-giang/15-ngay-toi">
+                                15 ngày tới
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/ha-giang/30-ngay-toi">
+                                30 ngày tới
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <span class="next-nav">
+                <i class="bi bi-arrow-right-circle"></i>
+            </span>
+        </div>
+        @RenderBody()
+    </main>
+    <footer class="border-top footer text-muted py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-8">
+                    <div class="footer-items footer-items-left">
+                        <span>© 2021 thoitiet.edu.vn <a href="/">Thời tiết Việt Nam</a></span>
+                        <span><a href="/widget" rel="nofollow noreferrer">Widget</a></span>
+                        <div class="social-footer-items">
+                            @*</a>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../resource/lib/jquery/dist/jquery.min.js"></script>
+    <script src="../resource/lib/jquery-ui/jquery-ui.js"></script>
+    <script src="../resource/js/bootstrap.bundle.min.js"></script>
+    <script src="../resource/js/geo.js?v=uWTZBcMwV1vlfVtE9LwDYAQCQguvMzMswKmVjbcaYRw"></script>
+
+    <script src="../resource/js/site.js?v=piYSZ_GxaJj_KTQ_Gx7OvRQbxYWioM6qxWMvSMZx52A"></script>
+
+</body>
+
+</html>

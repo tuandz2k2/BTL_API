@@ -185,7 +185,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ThoiTiet.cs" />
+    <Compile Include="Controllers\ThoiTietController.cs" />
+    <Compile Include="Controllers\TinTucController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -211,6 +212,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="NewsServices\News.js" />
     <Content Include="resource\css\bootstrap.min.css" />
     <Content Include="resource\css\dist\css\bootstrap.css" />
     <Content Include="resource\css\site.css" />
@@ -403,11 +405,13 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutIndex.cshtml" />
     <Content Include="Views\Home\Chi_tiet.cshtml" />
-    <Content Include="Views\ThoiTiet\NamNgayToi.cshtml" />
+    <Content Include="Views\Shared\_LayoutChiTiet.cshtml" />
+    <Content Include="Views\ThoiTiet\BayNgayToi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\TinTuc\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

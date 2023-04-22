@@ -10,7 +10,7 @@ using System.Web.Mvc;
 namespace BTL_api.Controllers
 {
 
-    public class ThoiTiet : Controller
+    public class ThoiTietController : Controller
     {
         public ActionResult Index(string place)
         {
@@ -34,6 +34,11 @@ namespace BTL_api.Controllers
             return View();
         }
         public ActionResult NamNgayToi(string place)
+        {
+            ViewBag.Place = place;
+            return View();
+        }
+        public ActionResult BayNgayToi(string place)
         {
             ViewBag.Place = place;
             return View();
