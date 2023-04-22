@@ -30,5 +30,13 @@ namespace BTL_api.Controllers
         {
             return View();
         }
+        public ActionResult Dieukhoandichvu()
+        {
+            return View();
+        }
+        public ActionResult Chinhsachbaomat()
+        {
+            return View();
+        }
     }
 }
