@@ -1,4 +1,7 @@
-﻿
+﻿var script = document.createElement('script');
+script.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
+document.getElementsByTagName('head')[0].appendChild(script);
+
 // Lấy dữ liệu từ thuộc tính data- của id="mydata"
 var place = document.getElementById("mydata").dataset.place;
 var lon = document.getElementById("mydata").dataset.lon;
@@ -14,7 +17,7 @@ function getCurrentWeatherDetail() {
         success: function (data) {
             console.log(data);
 
-            // xử lí dữ liệu trả về
+            // Lấy dữ liệu thời tiết hiện tại
             var location = data.location.name;
             var country = data.location.country;
             var iconUrl = data.current.condition.icon;
@@ -29,7 +32,7 @@ function getCurrentWeatherDetail() {
             var temp_max = data.forecast.forecastday[0].day.maxtemp_c;
 
 
-            //Hiển thị thông tin thời tiết lên trang web
+            // Hiển thị thông tin thời tiết hiện tại lên trang web
             $("#location").text(`Dự báo thời tiết ${location}, ${country}`);
             $("#image-div").prepend(`<img id="current-weather-image" src="${iconUrl}" />`);
             $("#current-temp").text(`${temp} °`);
@@ -41,39 +44,74 @@ function getCurrentWeatherDetail() {
             $("#uv").text(`${uv}`);
             $("#min_max_temp").text(`${temp_min}°/${temp_max}°`);
 
-            /*
-            strHTML = ``;
-            // 3 days forecast
-            for (let i = 0; i < 3; i++) {
-                // Lấy dữ liệu trả về
-                var date = data.forecast.forecastday[i].date;
-                var avghumidity = data.forecast.forecastday[i].day.avghumidity;
-                var iconUrlforecast = data.forecast.forecastday[i].day.condition.icon;
-                var textforecast = data.forecast.forecastday[i].day.condition.text;
-                var min_temp = data.forecast.forecastday[i].day.mintemp_c;
-                var max_temp = data.forecast.forecastday[i].day.maxtemp_c;
-                var displayDate = formatDate(date);
-                str = `<div class="weather-item">
-                                    <span class="weather-item-title">${displayDate}</span>
-                                    <div class="weather-item-body">
-                                        <img src="${iconUrlforecast}">
-                                        <div class="precipitation" title="Độ ẩm">
-                                            <i class="bi bi-droplet"></i> ${avghumidity} %
-                                        </div>
-                                        <p class="mb-0">
-                                            ${textforecast}
-                                        </p>
-                                    </div>
+            // Hiển thị Ngày đêm sáng tối
+            // 12h AM
+            var temp_ngay = data.forecast.forecastday[0].hour[12].temp_c;
+            // 0h AM
+            var temp_dem = data.forecast.forecastday[0].hour[0].temp_c;
+            // 8h AM
+            var temp_sang = data.forecast.forecastday[0].hour[8].temp_c;
+            // 7h PM
+            var temp_toi = data.forecast.forecastday[0].hour[19].temp_c;
+            $(`#temp_ngay`).text(`${temp_ngay}°`);
+            $(`#temp_dem`).text(`${temp_dem}°`);
+            $(`#temp_sang`).text(`${temp_sang}°`);
+            $(`#temp_toi`).text(`${temp_toi}°`);
+
+        },
+        error: function () {
+            alert("Không thể lấy thông tin thời tiết.");
+        }
+
+    });
+}
+
+
+function Weather_by_48_hours() {
+    // Gửi yêu cầu đến API để lấy dữ liệu thời tiết
+    $.ajax({
+        url: `https://api.weatherapi.com/v1/forecast.json?key=cf4433948c49480fb79143448232003&q=${lat},${lon}&days=2&aqi=yes&alerts=yes&lang=vi`,
+
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+
+            // Hiển thị thời tiết 48h - 2 ngày
+            html_48h = ``;
+            for (let ngay = 0; ngay < 2; ngay++) {
+                for (let gio = 0; gio < 24; gio++) {
+                    // Lấy dữ liệu
+                    var thoigian = data.forecast.forecastday[ngay].hour[gio].time;
+                    var temp_c = data.forecast.forecastday[ngay].hour[gio].temp_c;
+                    var temp_feels = data.forecast.forecastday[ngay].hour[gio].feelslike_c;
+                    var src_icon = data.forecast.forecastday[ngay].hour[gio].condition.icon;
+                    var chance_of_rain = data.forecast.forecastday[ngay].hour[gio].chance_of_rain;
+                    var description = data.forecast.forecastday[ngay].hour[gio].condition.text;
+                    // Tạo chuỗi html
+                    str = `<div class="weather-item bg-white text-dark">
+                                    <h3 class="weather-item-title font-h3">
+                                        <span>${thoigian}</span>
+                                    </h3>
                                     <div class="weather-item-footer">
-                                        <span>${min_temp}°</span> /
-                                        <span>${max_temp}°</span>
+                                        <span title="Temp">${temp_c} °</span>
+                                        /
+                                        <span title="Feels Like">${temp_feels} °</span>
                                     </div>
-                                </div>
-                    `;
-                strHTML += str;
+                                    <div class="weather-item-body">
+                                        <img src="${src_icon}" alt="${description}">
+                                        <div class="Khả năng có mưa" title="Khả năng có mưa">
+                                            <i class="bi bi-droplet"></i>
+                                            ${chance_of_rain} %
+                                        </div>
+                                        <p class="mb-0"> ${description} </p>
+                                    </div>
+                                </div>`;
+                    html_48h += str;
+                }
             }
-            $("#ThreeDayForecast").html(strHTML);
-            */
+            $("#weather_48h").html(html_48h);
+
         },
         error: function () {
             alert("Không thể lấy thông tin thời tiết.");
