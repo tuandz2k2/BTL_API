@@ -1,6 +1,6 @@
 ﻿function HotNews() {
     $.ajax({
-        url: "https://newsdata.io/api/1/news?country=vi&category=top&apikey=pub_209245d45e19f30cdcc75f0cbe8e24733332e",
+        url: "https://newsapi.org/v2/top-headlines?country=us&apiKey=b38ccf3fc2a8464ca490114081bfe456&category=general",
         method: "GET",
         dataType: "json",
         success: function (data) {
@@ -8,8 +8,8 @@
             strHTML = ``;
             // Xử lí dữ liệu
             for (let i = 0; i < 3; i++) {
-                var title = data.results[i].title;
-                var imageUrl = data.results[i].image_url;
+                var title = data.articles[i].title;
+                var imageUrl = data.articles[i].urlToImage;
                 str = `<li class="media my-1 pb-2 list-top-new-items">
                             <img src="${imageUrl}" class="me-3">
                             <div class="media-body">
