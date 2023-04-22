@@ -431,53 +431,73 @@
         </header>
     </div>
     <main role="main">
+        <!--Page Location-->
+        <div class="container">
+            <div class="alert alert-primary no-border mb-0 rounded-0 rounded-top">
+                <nav style="--bs-breadcrumb-divider: '\\';" aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("Index", "Home")">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">Thời tiết @ViewBag.Place</li>
+                        @if (ViewBag.Act != "")
+                        {
+                            <li class="breadcrumb-item active" aria-current="page">@ViewBag.Act</li>
+                        }
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
         <div class="container my-3 sticky-top">
             <nav class="navbar-dark bg-weather-primary menu-location">
                 <div class="nav-scroller">
                     <ul class="nav w-100 nav-pills nav-fill">
                         <li class="nav-item">
-                            <a class="nav-link active" href="/ha-giang">Hiện tại</a>
+                            <a class="nav-link active" href="@Url.Action("Index", "ThoiTiet", new {place=ViewBag.Place, lon=ViewBag.lon, lat=ViewBag.lat})">Hiện tại</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/ha-giang/theo-gio">
+                            <a class="nav-link" aria-current="page" href="@Url.Action("TheoGio", "ThoiTiet", new {place=ViewBag.Place, lon=ViewBag.lon, lat=ViewBag.lat})">
                                 Theo giờ
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/ha-giang/ngay-mai">
+                            <a class="nav-link" href="@Url.Action("NgayMai", "ThoiTiet", new {place=ViewBag.Place, lon=ViewBag.lon, lat=ViewBag.lat})">
                                 Ngày mai
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/ha-giang/3-ngay-toi">
+                            <a class="nav-link" href="@Url.Action("BaNgayToi", "ThoiTiet", new {place=ViewBag.Place, lon=ViewBag.lon, lat=ViewBag.lat})">
                                 3 ngày tới
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/ha-giang/5-ngay-toi">
+                            <a class="nav-link" href="@Url.Action("NamNgayToi", "ThoiTiet", new {place=ViewBag.Place, lon=ViewBag.lon, lat=ViewBag.lat})">
                                 5 ngày tới
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/ha-giang/7-ngay-toi">
+                            <a class="nav-link" href="@Url.Action("BayNgayToi", "ThoiTiet", new {place=ViewBag.Place, lon=ViewBag.lon, lat=ViewBag.lat})">
                                 7 ngày tới
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/ha-giang/10-ngay-toi">
+
+                        @*<li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "ThoiTiet", new {place=ViewBag.Place, lon=ViewBag.lon, lat=ViewBag.lat})">
                                 10 ngày tới
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/ha-giang/15-ngay-toi">
+                            <a class="nav-link" href="@Url.Action("Index", "ThoiTiet", new {place=ViewBag.Place, lon=ViewBag.lon, lat=ViewBag.lat})">
                                 15 ngày tới
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/ha-giang/30-ngay-toi">
+                            <a class="nav-link" href="@Url.Action("Index", "ThoiTiet", new {place=ViewBag.Place, lon=ViewBag.lon, lat=ViewBag.lat})">
                                 30 ngày tới
                             </a>
-                        </li>
+                        </li>*@
+
                     </ul>
                 </div>
             </nav>
