@@ -46,10 +46,10 @@ namespace BTL_api.Controllers
             ViewBag.Act = "Ba Ngày Tới";
             return View();
         }
-        public ActionResult NamNgayToi(string place, float lon, float lat)
+        public ActionResult NamNgayToi(string place)
         {
-            ViewBag.lon = lon;
-            ViewBag.lat = lat;
+           // ViewBag.lon = lon;
+            //ViewBag.lat = lat;
             ViewBag.Place = place;
             ViewBag.Act = "Năm Ngày Tới";
             return View();
