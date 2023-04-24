@@ -76,18 +76,30 @@ function Weather_by_48_hours() {
         dataType: "json",
         success: function (data) {
             console.log(data);
-
+            //mảng lưu ngày
+            var arrGio = [];
+            //mảng lưu data
+            var dataBieuDo = [];
+            var dataMua = [];
             // Hiển thị thời tiết 48h - 2 ngày
             html_48h = ``;
             for (let ngay = 0; ngay < 2; ngay++) {
                 for (let gio = 0; gio < 24; gio++) {
                     // Lấy dữ liệu
+                    
                     var thoigian = data.forecast.forecastday[ngay].hour[gio].time;
                     var temp_c = data.forecast.forecastday[ngay].hour[gio].temp_c;
                     var temp_feels = data.forecast.forecastday[ngay].hour[gio].feelslike_c;
                     var src_icon = data.forecast.forecastday[ngay].hour[gio].condition.icon;
                     var chance_of_rain = data.forecast.forecastday[ngay].hour[gio].chance_of_rain;
                     var description = data.forecast.forecastday[ngay].hour[gio].condition.text;
+                    //Array time
+                    arrGio.push(thoigian);
+                    //Array temp
+                    dataBieuDo.push(temp_c);
+
+                    //Array luong mua
+                    dataMua.push(chance_of_rain);
                     // Tạo chuỗi html
                     str = `<div class="weather-item bg-white text-dark">
                                     <h3 class="weather-item-title font-h3">
@@ -111,7 +123,76 @@ function Weather_by_48_hours() {
                 }
             }
             $("#weather_48h").html(html_48h);
+            $(function () {
+                Highcharts.chart('chart1', {
+                    title: {
+                        text: 'Khả năng có thể mưa',
+                    },
+                    xAxis: {
+                        categories: arrGio
+                    },
+                    chart: {
+                        type: 'column'
 
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'mm'
+                        },
+                        plotLines: [{
+                            value: 0,
+                            width: 1,
+                            color: '#808080'
+                        }]
+                    },
+                    tooltip: {
+                        valueSuffix: 'mm'
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle',
+                        borderWidth: 0
+                    },
+                    series: [{
+                        data: dataBieuDo
+                    }]
+                });
+            });
+            $(function () {
+                Highcharts.chart('chart', {
+                    title: {
+                        text: 'Nhiệt độ',
+                    },
+                    xAxis: {
+                        categories: arrGio
+                    },
+
+                    yAxis: {
+                        title: {
+                            text: 'Temperature (°C)'
+                        },
+                        plotLines: [{
+                            value: 0,
+                            width: 1,
+                            color: '#808080'
+                        }]
+                    },
+                    tooltip: {
+                        valueSuffix: '°C'
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle',
+                        borderWidth: 0
+                    },
+                    series: [{
+                        data:dataMua
+                        ]
+                    }]
+                });
+            });
         },
         error: function () {
             alert("Không thể lấy thông tin thời tiết.");
